@@ -10,5 +10,8 @@ Set-Location d:\
 Get-ChildItem -Filter *doc* -Recurse
 
 # Replaces specific characters....
-'dc=cloud,dc=booandjoel,dc=co,dc=uk' -replace ',dc=','.'
+'dc=cloud,dc=domain,dc=local' -match 'cloud,dc=domain,dc=local' | out-null
+$matches | ForEach-Object {$_.Values -replace ',dc=','.'}
+
+
 
